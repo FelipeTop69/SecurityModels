@@ -1,0 +1,19 @@
+# Normalizar finales de línea
+* text=auto
+
+# Asegurar que ciertos tipos de archivo siempre usen LF
+*.js text eol=lf
+*.cs text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+
+# Archivos binarios (no normalizar)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.woff binary
+*.woff2 binary
+*.ttf binary

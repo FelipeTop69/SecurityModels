@@ -1,0 +1,7 @@
+Backend/.vs/
+Backend/.vscode/
+
+Frontend/.vs/
+Frontend/.vscode/
+app-security-model/.vscode/
+Backend/Web/appsettings.Secrets.json

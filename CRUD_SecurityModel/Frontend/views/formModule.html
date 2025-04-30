@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SecurityModel</title>
+
+    <link rel="icon" href="../assets/img/img-home.png" type="image/x-icon" />
+
+    <!-- Liberias -->
+    <link rel="stylesheet" href="../vendor/bootstrap-5.3.5/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../vendor/SweetAlert2/css/sweetalert2.min.css" type="text/css">
+    <link rel="stylesheet" href="../vendor/fontawesome-6.7.2/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="../assets/css/sb-admin-2.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body id="page-top">
+
+    <div id="wrapper">
+
+        <div id="sidebarContainer"></div>
+
+        <div id="content-wrapper" class="d-flex flex-column img-fluid">
+            <div id="content">
+                <div class="container-fluid w-100">
+                    <h1 class="h3 mb-2 mt-4  text-center titulo-contenedor">TABLA FORM_MODULE</h1>
+                    <div class="d-flex justify-content-center align-items-center m-4">
+                        <button class="btn btn-primary" id="botonRegistrar" type="button" data-bs-toggle="modal" data-bs-target="#modalRegistroFormModule">
+                            REGISTRAR FORM_MODULE
+                            <i class="fa-regular fa-file"></i>
+                        </button>
+                    </div>
+
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h5 class="m-0 font-weight-bold text-primary">FormModule Registrados</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable"  cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>N°</th>
+                                            <th>FormName</th>
+                                            <th>ModuleName</th>
+                                            <th>Estado</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="cuerpoTabla">
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Modal Registro -->
+    <div class="modal fade" id="modalRegistroFormModule" tabindex="-1" aria-labelledby="modalRegistroFormModule" aria-hidden="true">
+        <div class=" modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title titulo-modal fs-5" id="modalRegistro">Registrar FormModule</h1>
+                </div>
+                <div class="modal-body">
+                    <form id="formularioFormModule" class="row formulario-registro needs-validation">
+                        <div class="col-md-12">
+                            <label for="formId" class="form-label">Form</label>
+                            <select class="form-select" id="formId" name="formId" required>
+                                <!-- <option selected disabled value="">Elije...</option>
+                                <option value="1">1</option> -->
+                            </select>
+                            <div class="invalid-feedback">
+                                Selecciona Form
+                            </div>
+
+                            <label for="moduleId" class="form-label">Module</label>
+                            <select class="form-select" id="moduleId" name="moduleId" required>
+                                <!-- <option selected disabled value="">Elije...</option>
+                                <option value="1">1</option> -->
+                            </select>
+                            <div class="invalid-feedback">
+                                Selecciona Module
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-md-12 text-center">
+                            <button type="submit" class="btn btn-success">Guardar datos</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin Modal Registro -->
+
+    <!-- Modal Actualizar -->
+    <div class="modal fade" id="modalActualizarFormModule" tabindex="-1" aria-labelledby="modalActualizarFormModule" aria-hidden="true">
+        <div class=" modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title titulo-modal fs-5" id="modalActualizar">Actualizar FormModule</h1>
+                </div>
+                <div class="modal-body" id="cuerpoModalActualizarFormModule">
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin Modal Actualizar -->
+
+    <!-- Liberias -->
+    <script src="../vendor/bootstrap-5.3.5/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/SweetAlert2/js/sweetalert2.min.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Focus -->
+    <script type="module" src="../assets/js/mainFormModule.js"></script>
+</body>
+</html>

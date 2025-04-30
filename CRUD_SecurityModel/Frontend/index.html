@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <title>SecurityModel</title>
+
+    <link rel="icon" href="assets/img/img-home.png" type="image/x-icon" />
+
+    <!-- Liberias -->
+    <link rel="stylesheet" href="vendor/bootstrap-5.3.5/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="vendor/SweetAlert2/css/sweetalert2.min.css" type="text/css">
+    <link rel="stylesheet" href="vendor/fontawesome-6.7.2/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="assets/css/sb-admin-2.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body id="page-top">
+
+    <div id="wrapper">
+
+        <ul class="navbar-nav sidebar sidebar-dark accordion barra-lateral" id="accordionSidebar">
+
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+                <div class="sidebar-brand-icon">
+                    <img class="logo-pat" src="../assets/img/img-home.png" alt="">
+                </div>
+                <div class="sidebar-brand-text mx-3">Security Model</div>
+            </a>
+
+            <hr class="sidebar-divider">
+
+            <li class="nav-item">
+                <a class="nav-link" href="#" id="btnLogout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Salir</span>
+                </a>
+            </li>
+
+            <hr class="sidebar-divider my-0">
+
+            <li class="nav-item active">
+                <a class="nav-link" href="#">
+                    <i class="fa-sharp fa-solid fa-house"></i>
+                    <span>Home</span></a>
+            </li>
+
+            <hr class="sidebar-divider">
+
+            <li class="nav-item">
+                <a class="nav-link" href="views/form.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Form</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="views/module.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Module</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="views/permission.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Permission</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="views/person.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Person</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="views/rol.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Rol</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="views/user.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>User</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="views/rolFormPermission.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>RolFormPer...</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="views/formModule.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>FormModule</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="views/rolUser.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>RolUser</span></a>
+            </li>
+
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+
+        <div id="content-wrapper" class="d-flex justify-content-center align-items-center img-fluid">
+            <div id="content">
+                <div class="container-fluid w-100">
+                    <h1 class="h1 mb-2 mt-4  text-center titulo-contenedor">CRUD Del Modelo e Seguridad</h1>
+                    <div class="d-flex flex-column justify-content-center align-items-center m-4">
+                        <button class="btn btn-outline-light btn-lg mb-3" id="cambiarConexion" type="button">
+                            <i class="fa-solid fa-database"></i>
+                            Cambiar BD
+                            <i class="fa-solid fa-database"></i>
+                        </button>
+                        <h5 id="conexionActual" class="text-light ms-2">BD: SQL Server</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Liberias -->
+    <script src="vendor/bootstrap-5.3.5/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/SweetAlert2/js/sweetalert2.min.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <script src="assets/js/dom/demo/sb-admin-2.min.js"></script>
+
+    <script type="module" src="assets/js/main.js"></script>
+
+    <script>
+        function mostrarConexionActual() {
+            const db = localStorage.getItem("X-DB-Provider") || "sqlserver";
+            const label = {
+                sqlserver: "SQL Server",
+                mysql: "MySQL",
+                postgresql: "PostgreSQL"
+            };
+            const conexionLabel = document.getElementById("conexionActual");
+            if (conexionLabel) {
+                conexionLabel.textContent = `BD: ${label[db] || db}`;
+            }
+        }
+
+        function configurarCambioDeConexion() {
+            const btn = document.getElementById("cambiarConexion");
+            if (!btn) return;
+
+            btn.addEventListener("click", () => {
+                Swal.fire({
+                    title: "Selecciona una base de datos",
+                    input: "select",
+                    inputOptions: {
+                        sqlserver: "SQL Server",
+                        postgresql: "PostgreSQL",
+                        mysql: "MySQL"
+                    },
+                    inputPlaceholder: "Selecciona un proveedor",
+                    showCancelButton: true,
+                    confirmButtonText: "Conectar"
+                }).then((result) => {
+                    if (result.isConfirmed && result.value) {
+                        localStorage.setItem("X-DB-Provider", result.value);
+                        mostrarConexionActual();
+                        Swal.fire("¡Conexión actualizada!", `Base de datos: ${result.value}`, "success");
+                    }
+                });
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            if (!localStorage.getItem("X-DB-Provider")) {
+                localStorage.setItem("X-DB-Provider", "sqlserver");
+            }
+
+            mostrarConexionActual();
+            configurarCambioDeConexion();
+        });
+    </script>
+</body>
+
+</html>

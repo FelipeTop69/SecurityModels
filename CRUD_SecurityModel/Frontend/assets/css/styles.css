@@ -1,0 +1,119 @@
+.barra-lateral{
+    background: #16222A;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #3A6073, #16222A);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #3A6073, #16222A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+
+    border-right: 4px solid white;
+}
+
+.logo-pat{
+    width: 50px;
+    height: 50px;
+}
+
+#content-wrapper{
+    background: #16222A;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #3A6073, #16222A);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #3A6073, #16222A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.contenedor-all{
+    width: 85% !important;
+}
+
+.titulo-contenedor{
+    color: rgb(255, 255, 255) !important;
+    font-style: italic;
+    font-weight: 600 !important;
+    letter-spacing: 2px;
+}
+
+.titulo-modal{
+    color: rgba(0, 0, 0, 70%);
+}
+
+.formulario-registro{
+    gap: 15px;
+    color: black;
+}
+
+.campos{
+    text-align: center;
+}
+
+.sin-borde{
+    border-top: 1px solid rgba(133, 135, 150, 0) !important;
+    border-bottom: 1px solid rgb(133, 135, 150) !important;
+    border-left: 1px solid rgba(133, 135, 150, 0) !important;
+    border-right: 1px solid rgba(133, 135, 150, 0) !important;
+}
+
+.sin-borde-dos{
+    border-top: 1px solid rgba(133, 135, 150, 0) !important;
+    border-bottom: 1px solid rgb(133, 135, 150) !important;
+    border-left: 1px solid rgba(133, 135, 150, 0) !important;
+    border-right: 1px solid rgba(133, 135, 150, 0) !important;
+}
+
+.sin-borde-tres{
+    border-top: 1px solid rgba(133, 135, 150, 0) !important;
+    border-bottom: 1px solid rgb(133, 135, 150) !important;
+    border-left: 1px solid rgba(133, 135, 150, 0) !important;
+    border-right: 1px solid rgb(133, 135, 150) !important;
+}
+
+.sin-borde-cuatro{
+    border-top: 1px solid rgba(133, 135, 150, 0) !important;
+    border-bottom: 1px solid rgb(133, 135, 150) !important;
+    border-left: 1px solid rgba(133, 135, 150, 0) !important;
+    border-right: 1px solid rgba(133, 135, 150, 0) !important;
+}
+
+.cabezera{
+    border-top: 1px solid rgb(133, 135, 150) !important;
+    border-bottom: 1px solid rgb(133, 135, 150) !important;
+    border-left: 1px solid rgb(133, 135, 150) !important;
+    border-right: 1px solid rgb(133, 135, 150) !important;
+}
+
+.facil{
+    background-color: rgb(127, 245, 127) !important;
+}
+
+.medio{
+    background-color: rgb(250, 250, 127) !important;
+}
+
+.dificil{
+    background-color: rgb(255, 140, 140) !important;
+}
+
+#dataTable thead tr th{
+    color: rgb(10, 66, 83);
+    font-size: 15px;
+    text-align: center;
+}
+
+#dataTable tbody tr td{
+    color: rgb(10, 83, 28);
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+}
+
+#dataTable tfoot tr th{
+    color: rgb(10, 66, 83);
+    font-size: 15px;
+    text-align: center;
+}
+
+.icono-acciones{
+    font-size: 15px !important;
+}
+
+.icono-kill{
+    font-size: 25px;
+}
