@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="332a317072944d1c882224ec79489401" Name="Diagram1" ZoomLevel="67" >
+        <EntityTypeShape EntityType="DbModel.Role" Width="1.5" PointX="9.625" PointY="10.125" FillColor="192, 192, 255" />
+        <EntityTypeShape EntityType="DbModel.User" Width="1.5" PointX="14.75" PointY="10" IsExpanded="true" FillColor="192, 192, 255" />
+        <EntityTypeShape EntityType="DbModel.Person" Width="1.5" PointX="16.875" PointY="9.375" FillColor="192, 192, 255" />
+        <EntityTypeShape EntityType="DbModel.Form" Width="1.5" PointX="12.875" PointY="13" FillColor="192, 192, 255" />
+        <EntityTypeShape EntityType="DbModel.Module" Width="1.5" PointX="14.875" PointY="15.625" FillColor="192, 192, 255" />
+        <AssociationConnector Association="DbModel.UserPerson" />
+        <EntityTypeShape EntityType="DbModel.UserRole" Width="1.5" PointX="12" PointY="10" FillColor="192, 192, 255" />
+        <EntityTypeShape EntityType="DbModel.RoleFormPermissio" Width="2" PointX="10.125" PointY="13" FillColor="192, 192, 255" />
+        <AssociationConnector Association="DbModel.RoleModuleRole" />
+        <AssociationConnector Association="DbModel.UserRoleRole" />
+        <AssociationConnector Association="DbModel.UserRoleUser" />
+        <EntityTypeShape EntityType="DbModel.Permission" Width="1.5" PointX="8.125" PointY="13" FillColor="192, 192, 255" />
+        <AssociationConnector Association="DbModel.RoleModulePermission" />
+        <EntityTypeShape EntityType="DbModel.FormModule" Width="1.5" PointX="12.375" PointY="15.875" FillColor="192, 192, 255" />
+        <AssociationConnector Association="DbModel.FormModuleForm" />
+        <AssociationConnector Association="DbModel.FormModuleModule" />
+        <EntityTypeShape EntityType="DbModel.Department" Width="1.5" PointX="16.875" PointY="17.125" FillColor="192, 192, 255" />
+        <EntityTypeShape EntityType="DbModel.City" Width="1.5" PointX="16.75" PointY="14.625" FillColor="192, 192, 255" />
+        <AssociationConnector Association="DbModel.PersonCity" />
+        <EntityTypeShape EntityType="DbModel.Card" Width="1.5" PointX="19.125" PointY="12" FillColor="192, 192, 255" />
+        <AssociationConnector Association="DbModel.CardPerson" />
+        <EntityTypeShape EntityType="DbModel.Organization" Width="1.5" PointX="25.875" PointY="9.375" FillColor="192, 192, 255" />
+        <EntityTypeShape EntityType="DbModel.Division" Width="1.5" PointX="21.5" PointY="9.375" FillColor="192, 192, 255" />
+        <EntityTypeShape EntityType="DbModel.Assignment" Width="1.5" PointX="19.125" PointY="9.375" FillColor="192, 192, 255" />
+        <AssociationConnector Association="DbModel.AssignmentOrganizationDivision" />
+        <AssociationConnector Association="DbModel.PersonAssignment" />
+        <EntityTypeShape EntityType="DbModel.Branch" Width="1.5" PointX="23.625" PointY="9.375" />
+        <AssociationConnector Association="DbModel.OrganizationBranch" />
+        <EntityTypeShape EntityType="DbModel.DivisionBranch" Width="1.5" PointX="22.5" PointY="12.25" />
+        <AssociationConnector Association="DbModel.DivisionBranchDivision" />
+        <AssociationConnector Association="DbModel.DivisionBranchBranch" />
+        <EntityTypeShape EntityType="DbModel.Event" Width="1.5" PointX="21.25" PointY="15.5" />
+        <EntityTypeShape EntityType="DbModel.EventType" Width="1.5" PointX="19.125" PointY="15.625" />
+        <EntityTypeShape EntityType="DbModel.AccessPoint" Width="1.5" PointX="23.5" PointY="15.5" />
+        <AssociationConnector Association="DbModel.AccessPointEvent" />
+        <EntityTypeShape EntityType="DbModel.Attendance" Width="1.5" PointX="25.75" PointY="15.375" />
+        <AssociationConnector Association="DbModel.AttendanceAccessPoint" />
+        <AssociationConnector Association="DbModel.EventEventType" />
+        <AssociationConnector Association="DbModel.RoleFormPermissioForm" />
+        <AssociationConnector Association="DbModel.CityDepartment" />
+        <AssociationConnector Association="DbModel.AttendanceCard" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

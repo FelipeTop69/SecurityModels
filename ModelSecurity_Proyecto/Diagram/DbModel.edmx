@@ -1,0 +1,1375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="DbModelStoreContainer">
+    <EntitySet Name="Roles" EntityType="DbModel.Store.Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="DbModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="People" EntityType="DbModel.Store.People" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Forms" EntityType="DbModel.Store.Forms" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Models" EntityType="DbModel.Store.Models" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserRoles" EntityType="DbModel.Store.UserRoles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RoleFormPermissioSet" EntityType="DbModel.Store.RoleFormPermissioSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Permits" EntityType="DbModel.Store.Permits" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FormsModules" EntityType="DbModel.Store.FormsModules" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Departments" EntityType="DbModel.Store.Departments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Citys" EntityType="DbModel.Store.Citys" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cards" EntityType="DbModel.Store.Cards" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Organizations" EntityType="DbModel.Store.Organizations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OrganizationDivisions" EntityType="DbModel.Store.OrganizationDivisions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Assignments" EntityType="DbModel.Store.Assignments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Branchs" EntityType="DbModel.Store.Branchs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DivisionsBranchs" EntityType="DbModel.Store.DivisionsBranchs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Events" EntityType="DbModel.Store.Events" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EventsTypes" EntityType="DbModel.Store.EventsTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AccessPoints" EntityType="DbModel.Store.AccessPoints" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Attendances" EntityType="DbModel.Store.Attendances" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="UserPerson" Association="DbModel.Store.UserPerson">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Person" EntitySet="People" />
+    </AssociationSet>
+    <AssociationSet Name="RoleModuleRole" Association="DbModel.Store.RoleModuleRole">
+      <End Role="RoleModule" EntitySet="RoleFormPermissioSet" />
+      <End Role="Role" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="UserRoleRole" Association="DbModel.Store.UserRoleRole">
+      <End Role="UserRole" EntitySet="UserRoles" />
+      <End Role="Role" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="UserRoleUser" Association="DbModel.Store.UserRoleUser">
+      <End Role="UserRole" EntitySet="UserRoles" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="RoleModulePermission" Association="DbModel.Store.RoleModulePermission">
+      <End Role="RoleModule" EntitySet="RoleFormPermissioSet" />
+      <End Role="Permission" EntitySet="Permits" />
+    </AssociationSet>
+    <AssociationSet Name="FormModuleForm" Association="DbModel.Store.FormModuleForm">
+      <End Role="FormModule" EntitySet="FormsModules" />
+      <End Role="Form" EntitySet="Forms" />
+    </AssociationSet>
+    <AssociationSet Name="FormModuleModule" Association="DbModel.Store.FormModuleModule">
+      <End Role="FormModule" EntitySet="FormsModules" />
+      <End Role="Module" EntitySet="Models" />
+    </AssociationSet>
+    <AssociationSet Name="PersonCity" Association="DbModel.Store.PersonCity">
+      <End Role="Person" EntitySet="People" />
+      <End Role="City" EntitySet="Citys" />
+    </AssociationSet>
+    <AssociationSet Name="CardPerson" Association="DbModel.Store.CardPerson">
+      <End Role="Card" EntitySet="Cards" />
+      <End Role="Person" EntitySet="People" />
+    </AssociationSet>
+    <AssociationSet Name="AssignmentOrganizationDivision" Association="DbModel.Store.AssignmentOrganizationDivision">
+      <End Role="Assignment" EntitySet="Assignments" />
+      <End Role="OrganizationDivision" EntitySet="OrganizationDivisions" />
+    </AssociationSet>
+    <AssociationSet Name="PersonAssignment" Association="DbModel.Store.PersonAssignment">
+      <End Role="Person" EntitySet="People" />
+      <End Role="Assignment" EntitySet="Assignments" />
+    </AssociationSet>
+    <AssociationSet Name="OrganizationBranch" Association="DbModel.Store.OrganizationBranch">
+      <End Role="Organization" EntitySet="Organizations" />
+      <End Role="Branch" EntitySet="Branchs" />
+    </AssociationSet>
+    <AssociationSet Name="DivisionBranchDivision" Association="DbModel.Store.DivisionBranchDivision">
+      <End Role="DivisionBranch" EntitySet="DivisionsBranchs" />
+      <End Role="Division" EntitySet="OrganizationDivisions" />
+    </AssociationSet>
+    <AssociationSet Name="DivisionBranchBranch" Association="DbModel.Store.DivisionBranchBranch">
+      <End Role="DivisionBranch" EntitySet="DivisionsBranchs" />
+      <End Role="Branch" EntitySet="Branchs" />
+    </AssociationSet>
+    <AssociationSet Name="AccessPointEvent" Association="DbModel.Store.AccessPointEvent">
+      <End Role="AccessPoint" EntitySet="AccessPoints" />
+      <End Role="Event" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="AttendanceAccessPoint" Association="DbModel.Store.AttendanceAccessPoint">
+      <End Role="Attendance" EntitySet="Attendances" />
+      <End Role="AccessPoint" EntitySet="AccessPoints" />
+    </AssociationSet>
+    <AssociationSet Name="EventEventType" Association="DbModel.Store.EventEventType">
+      <End Role="Event" EntitySet="Events" />
+      <End Role="EventType" EntitySet="EventsTypes" />
+    </AssociationSet>
+    <AssociationSet Name="RoleFormPermissioForm" Association="DbModel.Store.RoleFormPermissioForm">
+      <End Role="RoleFormPermissio" EntitySet="RoleFormPermissioSet" />
+      <End Role="Form" EntitySet="Forms" />
+    </AssociationSet>
+    <AssociationSet Name="CityDepartment" Association="DbModel.Store.CityDepartment">
+      <End Role="City" EntitySet="Citys" />
+      <End Role="Department" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="AttendanceCard" Association="DbModel.Store.AttendanceCard">
+      <End Role="Attendance" EntitySet="Attendances" />
+      <End Role="Card" EntitySet="Cards" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="ActivationCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PersonId_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="People">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SecondLastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DocumentNumber" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DocumenType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BlodType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Photo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CityId_Id" Type="int" Nullable="false" />
+    <Property Name="AssignmentId_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Forms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Models">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="RoleId_Id" Type="int" Nullable="false" />
+    <Property Name="UserId_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RoleFormPermissioSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="RoleId_Id" Type="int" Nullable="false" />
+    <Property Name="PermissionId_Id" Type="int" Nullable="false" />
+    <Property Name="FormId_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Permits">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FormsModules">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="Form_Id" Type="int" Nullable="false" />
+    <Property Name="Module_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Citys">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DepartmentId_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cards">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="QR" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="ExpirationDate" Type="datetime" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="AttendanceId" Type="int" Nullable="false" />
+    <Property Name="PersonId_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Organizations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrganizationDivisions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Assignments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="DivisionId_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Branchs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="location" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OrganizationId" Type="int" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DivisionsBranchs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="DivisionId_Id" Type="int" Nullable="false" />
+    <Property Name="BranchId_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="EventTypeId_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventsTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AccessPoints">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="EventId_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Attendances">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Hour" Type="datetime" Nullable="false" />
+    <Property Name="TypeOfRecord" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="AccessPointId_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="UserPerson">
+    <End Role="User" Type="DbModel.Store.Users" Multiplicity="*" />
+    <End Role="Person" Type="DbModel.Store.People" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="PersonId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RoleModuleRole">
+    <End Role="RoleModule" Type="DbModel.Store.RoleFormPermissioSet" Multiplicity="*" />
+    <End Role="Role" Type="DbModel.Store.Roles" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RoleModule">
+        <PropertyRef Name="RoleId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserRoleRole">
+    <End Role="UserRole" Type="DbModel.Store.UserRoles" Multiplicity="*" />
+    <End Role="Role" Type="DbModel.Store.Roles" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="RoleId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserRoleUser">
+    <End Role="UserRole" Type="DbModel.Store.UserRoles" Multiplicity="*" />
+    <End Role="User" Type="DbModel.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="UserId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RoleModulePermission">
+    <End Role="RoleModule" Type="DbModel.Store.RoleFormPermissioSet" Multiplicity="*" />
+    <End Role="Permission" Type="DbModel.Store.Permits" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Permission">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RoleModule">
+        <PropertyRef Name="PermissionId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FormModuleForm">
+    <End Role="FormModule" Type="DbModel.Store.FormsModules" Multiplicity="*" />
+    <End Role="Form" Type="DbModel.Store.Forms" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Form">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormModule">
+        <PropertyRef Name="Form_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FormModuleModule">
+    <End Role="FormModule" Type="DbModel.Store.FormsModules" Multiplicity="*" />
+    <End Role="Module" Type="DbModel.Store.Models" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Module">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormModule">
+        <PropertyRef Name="Module_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PersonCity">
+    <End Role="Person" Type="DbModel.Store.People" Multiplicity="*" />
+    <End Role="City" Type="DbModel.Store.Citys" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Person">
+        <PropertyRef Name="CityId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CardPerson">
+    <End Role="Card" Type="DbModel.Store.Cards" Multiplicity="*" />
+    <End Role="Person" Type="DbModel.Store.People" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Card">
+        <PropertyRef Name="PersonId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AssignmentOrganizationDivision">
+    <End Role="Assignment" Type="DbModel.Store.Assignments" Multiplicity="*" />
+    <End Role="OrganizationDivision" Type="DbModel.Store.OrganizationDivisions" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="OrganizationDivision">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Assignment">
+        <PropertyRef Name="DivisionId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PersonAssignment">
+    <End Role="Person" Type="DbModel.Store.People" Multiplicity="*" />
+    <End Role="Assignment" Type="DbModel.Store.Assignments" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Assignment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Person">
+        <PropertyRef Name="AssignmentId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrganizationBranch">
+    <End Role="Organization" Type="DbModel.Store.Organizations" Multiplicity="1" />
+    <End Role="Branch" Type="DbModel.Store.Branchs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Branch">
+        <PropertyRef Name="OrganizationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DivisionBranchDivision">
+    <End Role="DivisionBranch" Type="DbModel.Store.DivisionsBranchs" Multiplicity="*" />
+    <End Role="Division" Type="DbModel.Store.OrganizationDivisions" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Division">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DivisionBranch">
+        <PropertyRef Name="DivisionId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DivisionBranchBranch">
+    <End Role="DivisionBranch" Type="DbModel.Store.DivisionsBranchs" Multiplicity="*" />
+    <End Role="Branch" Type="DbModel.Store.Branchs" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DivisionBranch">
+        <PropertyRef Name="BranchId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AccessPointEvent">
+    <End Role="AccessPoint" Type="DbModel.Store.AccessPoints" Multiplicity="*" />
+    <End Role="Event" Type="DbModel.Store.Events" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AccessPoint">
+        <PropertyRef Name="EventId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AttendanceAccessPoint">
+    <End Role="Attendance" Type="DbModel.Store.Attendances" Multiplicity="*" />
+    <End Role="AccessPoint" Type="DbModel.Store.AccessPoints" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="AccessPoint">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="AccessPointId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EventEventType">
+    <End Role="Event" Type="DbModel.Store.Events" Multiplicity="*" />
+    <End Role="EventType" Type="DbModel.Store.EventsTypes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="EventType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="EventTypeId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RoleFormPermissioForm">
+    <End Role="RoleFormPermissio" Type="DbModel.Store.RoleFormPermissioSet" Multiplicity="*" />
+    <End Role="Form" Type="DbModel.Store.Forms" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Form">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RoleFormPermissio">
+        <PropertyRef Name="FormId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CityDepartment">
+    <End Role="City" Type="DbModel.Store.Citys" Multiplicity="*" />
+    <End Role="Department" Type="DbModel.Store.Departments" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="DepartmentId_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AttendanceCard">
+    <End Role="Attendance" Type="DbModel.Store.Attendances" Multiplicity="1" />
+    <End Role="Card" Type="DbModel.Store.Cards" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Attendance">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Card">
+        <PropertyRef Name="AttendanceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="DbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="DbModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Roles" EntityType="DbModel.Role" />
+          <EntitySet Name="Users" EntityType="DbModel.User" />
+          <EntitySet Name="People" EntityType="DbModel.Person" />
+          <EntitySet Name="Forms" EntityType="DbModel.Form" />
+          <EntitySet Name="Models" EntityType="DbModel.Module" />
+          <AssociationSet Name="UserPerson" Association="DbModel.UserPerson">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Person" EntitySet="People" />
+          </AssociationSet>
+          <EntitySet Name="UserRoles" EntityType="DbModel.UserRole" />
+          <EntitySet Name="RoleFormPermissioSet" EntityType="DbModel.RoleFormPermissio" />
+          <AssociationSet Name="RoleModuleRole" Association="DbModel.RoleModuleRole">
+            <End Role="RoleModule" EntitySet="RoleFormPermissioSet" />
+            <End Role="Role" EntitySet="Roles" />
+          </AssociationSet>
+          <AssociationSet Name="UserRoleRole" Association="DbModel.UserRoleRole">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="Role" EntitySet="Roles" />
+          </AssociationSet>
+          <AssociationSet Name="UserRoleUser" Association="DbModel.UserRoleUser">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="Permits" EntityType="DbModel.Permission" />
+          <AssociationSet Name="RoleModulePermission" Association="DbModel.RoleModulePermission">
+            <End Role="RoleModule" EntitySet="RoleFormPermissioSet" />
+            <End Role="Permission" EntitySet="Permits" />
+          </AssociationSet>
+          <EntitySet Name="FormsModules" EntityType="DbModel.FormModule" />
+          <AssociationSet Name="FormModuleForm" Association="DbModel.FormModuleForm">
+            <End Role="FormModule" EntitySet="FormsModules" />
+            <End Role="Form" EntitySet="Forms" />
+          </AssociationSet>
+          <AssociationSet Name="FormModuleModule" Association="DbModel.FormModuleModule">
+            <End Role="FormModule" EntitySet="FormsModules" />
+            <End Role="Module" EntitySet="Models" />
+          </AssociationSet>
+          <EntitySet Name="Departments" EntityType="DbModel.Department" />
+          <EntitySet Name="Citys" EntityType="DbModel.City" />
+          <AssociationSet Name="PersonCity" Association="DbModel.PersonCity">
+            <End Role="Person" EntitySet="People" />
+            <End Role="City" EntitySet="Citys" />
+          </AssociationSet>
+          <EntitySet Name="Cards" EntityType="DbModel.Card" />
+          <AssociationSet Name="CardPerson" Association="DbModel.CardPerson">
+            <End Role="Card" EntitySet="Cards" />
+            <End Role="Person" EntitySet="People" />
+          </AssociationSet>
+          <EntitySet Name="Organizations" EntityType="DbModel.Organization" />
+          <EntitySet Name="OrganizationDivisions" EntityType="DbModel.Division" />
+          <EntitySet Name="Assignments" EntityType="DbModel.Assignment" />
+          <AssociationSet Name="AssignmentOrganizationDivision" Association="DbModel.AssignmentOrganizationDivision">
+            <End Role="Assignment" EntitySet="Assignments" />
+            <End Role="OrganizationDivision" EntitySet="OrganizationDivisions" />
+          </AssociationSet>
+          <AssociationSet Name="PersonAssignment" Association="DbModel.PersonAssignment">
+            <End Role="Person" EntitySet="People" />
+            <End Role="Assignment" EntitySet="Assignments" />
+          </AssociationSet>
+          <EntitySet Name="Branchs" EntityType="DbModel.Branch" />
+          <AssociationSet Name="OrganizationBranch" Association="DbModel.OrganizationBranch">
+            <End Role="Organization" EntitySet="Organizations" />
+            <End Role="Branch" EntitySet="Branchs" />
+          </AssociationSet>
+          <EntitySet Name="DivisionsBranchs" EntityType="DbModel.DivisionBranch" />
+          <AssociationSet Name="DivisionBranchDivision" Association="DbModel.DivisionBranchDivision">
+            <End Role="DivisionBranch" EntitySet="DivisionsBranchs" />
+            <End Role="Division" EntitySet="OrganizationDivisions" />
+          </AssociationSet>
+          <AssociationSet Name="DivisionBranchBranch" Association="DbModel.DivisionBranchBranch">
+            <End Role="DivisionBranch" EntitySet="DivisionsBranchs" />
+            <End Role="Branch" EntitySet="Branchs" />
+          </AssociationSet>
+          <EntitySet Name="Events" EntityType="DbModel.Event" />
+          <EntitySet Name="EventsTypes" EntityType="DbModel.EventType" />
+          <EntitySet Name="AccessPoints" EntityType="DbModel.AccessPoint" />
+          <AssociationSet Name="AccessPointEvent" Association="DbModel.AccessPointEvent">
+            <End Role="AccessPoint" EntitySet="AccessPoints" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <EntitySet Name="Attendances" EntityType="DbModel.Attendance" />
+          <AssociationSet Name="AttendanceAccessPoint" Association="DbModel.AttendanceAccessPoint">
+            <End Role="Attendance" EntitySet="Attendances" />
+            <End Role="AccessPoint" EntitySet="AccessPoints" />
+          </AssociationSet>
+          <AssociationSet Name="EventEventType" Association="DbModel.EventEventType">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="EventType" EntitySet="EventsTypes" />
+          </AssociationSet>
+          <AssociationSet Name="RoleFormPermissioForm" Association="DbModel.RoleFormPermissioForm">
+            <End Role="RoleFormPermissio" EntitySet="RoleFormPermissioSet" />
+            <End Role="Form" EntitySet="Forms" />
+          </AssociationSet>
+          <AssociationSet Name="CityDepartment" Association="DbModel.CityDepartment">
+            <End Role="City" EntitySet="Citys" />
+            <End Role="Department" EntitySet="Departments" />
+          </AssociationSet>
+          <AssociationSet Name="AttendanceCard" Association="DbModel.AttendanceCard">
+            <End Role="Attendance" EntitySet="Attendances" />
+            <End Role="Card" EntitySet="Cards" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <NavigationProperty Name="RoleFormPermission" Relationship="DbModel.RoleModuleRole" FromRole="Role" ToRole="RoleModule" />
+          <NavigationProperty Name="UserRole" Relationship="DbModel.UserRoleRole" FromRole="Role" ToRole="UserRole" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" />
+          <NavigationProperty Name="PersonId" Relationship="DbModel.UserPerson" FromRole="User" ToRole="Person" />
+          <NavigationProperty Name="UserRole" Relationship="DbModel.UserRoleUser" FromRole="User" ToRole="UserRole" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="ActivationCode" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="MiddleName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="DbModel.UserPerson" FromRole="Person" ToRole="User" />
+          <Property Name="SecondLastName" Type="String" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" />
+          <Property Name="DocumentNumber" Type="String" Nullable="false" />
+          <Property Name="Phone" Type="String" Nullable="false" />
+          <NavigationProperty Name="CityId" Relationship="DbModel.PersonCity" FromRole="Person" ToRole="City" />
+          <Property Name="Address" Type="String" Nullable="false" />
+          <NavigationProperty Name="Card" Relationship="DbModel.CardPerson" FromRole="Person" ToRole="Card" />
+          <Property Name="DocumenType" Type="String" Nullable="false" />
+          <Property Name="BlodType" Type="String" Nullable="false" />
+          <Property Name="Photo" Type="String" Nullable="false" />
+          <NavigationProperty Name="AssignmentId" Relationship="DbModel.PersonAssignment" FromRole="Person" ToRole="Assignment" />
+          <Property Name="Status" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Form">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <NavigationProperty Name="FormModule" Relationship="DbModel.FormModuleForm" FromRole="Form" ToRole="FormModule" />
+          <NavigationProperty Name="RoleFormPermissio" Relationship="DbModel.RoleFormPermissioForm" FromRole="Form" ToRole="RoleFormPermissio" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Module">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" />
+          <NavigationProperty Name="FormModule" Relationship="DbModel.FormModuleModule" FromRole="Module" ToRole="FormModule" />
+          <Property Name="Status" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="UserPerson">
+          <End Type="DbModel.User" Role="User" Multiplicity="1" />
+          <End Type="DbModel.Person" Role="Person" Multiplicity="1" />
+        </Association>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="RoleId" Relationship="DbModel.UserRoleRole" FromRole="UserRole" ToRole="Role" />
+          <NavigationProperty Name="UserId" Relationship="DbModel.UserRoleUser" FromRole="UserRole" ToRole="User" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoleFormPermissio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="RoleId" Relationship="DbModel.RoleModuleRole" FromRole="RoleModule" ToRole="Role" />
+          <NavigationProperty Name="PermissionId" Relationship="DbModel.RoleModulePermission" FromRole="RoleModule" ToRole="Permission" />
+          <NavigationProperty Name="FormId" Relationship="DbModel.RoleFormPermissioForm" FromRole="RoleFormPermissio" ToRole="Form" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="RoleModuleRole">
+          <End Type="DbModel.RoleFormPermissio" Role="RoleModule" Multiplicity="*" />
+          <End Type="DbModel.Role" Role="Role" Multiplicity="1" />
+        </Association>
+        <Association Name="UserRoleRole">
+          <End Type="DbModel.UserRole" Role="UserRole" Multiplicity="*" />
+          <End Type="DbModel.Role" Role="Role" Multiplicity="1" />
+        </Association>
+        <Association Name="UserRoleUser">
+          <End Type="DbModel.UserRole" Role="UserRole" Multiplicity="*" />
+          <End Type="DbModel.User" Role="User" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="RoleModule" Relationship="DbModel.RoleModulePermission" FromRole="Permission" ToRole="RoleModule" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="RoleModulePermission">
+          <End Type="DbModel.RoleFormPermissio" Role="RoleModule" Multiplicity="*" />
+          <End Type="DbModel.Permission" Role="Permission" Multiplicity="1" />
+        </Association>
+        <EntityType Name="FormModule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Form" Relationship="DbModel.FormModuleForm" FromRole="FormModule" ToRole="Form" />
+          <NavigationProperty Name="Module" Relationship="DbModel.FormModuleModule" FromRole="FormModule" ToRole="Module" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="FormModuleForm">
+          <End Type="DbModel.FormModule" Role="FormModule" Multiplicity="*" />
+          <End Type="DbModel.Form" Role="Form" Multiplicity="1" />
+        </Association>
+        <Association Name="FormModuleModule">
+          <End Type="DbModel.FormModule" Role="FormModule" Multiplicity="*" />
+          <End Type="DbModel.Module" Role="Module" Multiplicity="1" />
+        </Association>
+        <ComplexType Name="ComplexType1">
+          <Property Type="String" Name="MiddleName" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Status" Type="String" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="DbModel.CityDepartment" FromRole="Department" ToRole="City" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Person" Relationship="DbModel.PersonCity" FromRole="City" ToRole="Person" />
+          <Property Name="Status" Type="String" Nullable="false" />
+          <NavigationProperty Name="DepartmentId" Relationship="DbModel.CityDepartment" FromRole="City" ToRole="Department" />
+        </EntityType>
+        <Association Name="PersonCity">
+          <End Type="DbModel.Person" Role="Person" Multiplicity="*" />
+          <End Type="DbModel.City" Role="City" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Card">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="PersonId" Relationship="DbModel.CardPerson" FromRole="Card" ToRole="Person" />
+          <Property Name="QR" Type="String" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="ExpirationDate" Type="DateTime" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Attendance" Relationship="DbModel.AttendanceCard" FromRole="Card" ToRole="Attendance" />
+          <Property Name="AttendanceId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="CardPerson">
+          <End Type="DbModel.Card" Role="Card" Multiplicity="1" />
+          <End Type="DbModel.Person" Role="Person" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Organization">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Phone" Type="String" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="false" />
+          <NavigationProperty Name="BranchId" Relationship="DbModel.OrganizationBranch" FromRole="Organization" ToRole="Branch" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Division">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Assignment" Relationship="DbModel.AssignmentOrganizationDivision" FromRole="OrganizationDivision" ToRole="Assignment" />
+          <NavigationProperty Name="DivisionBranch" Relationship="DbModel.DivisionBranchDivision" FromRole="Division" ToRole="DivisionBranch" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Assignment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="DivisionId" Relationship="DbModel.AssignmentOrganizationDivision" FromRole="Assignment" ToRole="OrganizationDivision" />
+          <NavigationProperty Name="Person" Relationship="DbModel.PersonAssignment" FromRole="Assignment" ToRole="Person" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="AssignmentOrganizationDivision">
+          <End Type="DbModel.Assignment" Role="Assignment" Multiplicity="*" />
+          <End Type="DbModel.Division" Role="OrganizationDivision" Multiplicity="1" />
+        </Association>
+        <Association Name="PersonAssignment">
+          <End Type="DbModel.Person" Role="Person" Multiplicity="*" />
+          <End Type="DbModel.Assignment" Role="Assignment" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="location" Type="String" Nullable="false" />
+          <NavigationProperty Name="Organization" Relationship="DbModel.OrganizationBranch" FromRole="Branch" ToRole="Organization" />
+          <Property Name="OrganizationId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DivisionBranch" Relationship="DbModel.DivisionBranchBranch" FromRole="Branch" ToRole="DivisionBranch" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="OrganizationBranch">
+          <End Type="DbModel.Organization" Role="Organization" Multiplicity="1" />
+          <End Type="DbModel.Branch" Role="Branch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Organization">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Branch">
+              <PropertyRef Name="OrganizationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DivisionBranch">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="DivisionId" Relationship="DbModel.DivisionBranchDivision" FromRole="DivisionBranch" ToRole="Division" />
+          <NavigationProperty Name="BranchId" Relationship="DbModel.DivisionBranchBranch" FromRole="DivisionBranch" ToRole="Branch" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="DivisionBranchDivision">
+          <End Type="DbModel.DivisionBranch" Role="DivisionBranch" Multiplicity="*" />
+          <End Type="DbModel.Division" Role="Division" Multiplicity="1" />
+        </Association>
+        <Association Name="DivisionBranchBranch">
+          <End Type="DbModel.DivisionBranch" Role="DivisionBranch" Multiplicity="*" />
+          <End Type="DbModel.Branch" Role="Branch" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="AccessPoint" Relationship="DbModel.AccessPointEvent" FromRole="Event" ToRole="AccessPoint" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="EventTypeId" Relationship="DbModel.EventEventType" FromRole="Event" ToRole="EventType" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="DbModel.EventEventType" FromRole="EventType" ToRole="Event" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AccessPoint">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" Nullable="false" />
+          <NavigationProperty Name="EventId" Relationship="DbModel.AccessPointEvent" FromRole="AccessPoint" ToRole="Event" />
+          <NavigationProperty Name="Attendance" Relationship="DbModel.AttendanceAccessPoint" FromRole="AccessPoint" ToRole="Attendance" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="AccessPointEvent">
+          <End Type="DbModel.AccessPoint" Role="AccessPoint" Multiplicity="*" />
+          <End Type="DbModel.Event" Role="Event" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Attendance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="AccessPointId" Relationship="DbModel.AttendanceAccessPoint" FromRole="Attendance" ToRole="AccessPoint" />
+          <Property Name="Hour" Type="DateTime" Nullable="false" />
+          <Property Name="TypeOfRecord" Type="String" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CardId" Relationship="DbModel.AttendanceCard" FromRole="Attendance" ToRole="Card" />
+        </EntityType>
+        <Association Name="AttendanceAccessPoint">
+          <End Type="DbModel.Attendance" Role="Attendance" Multiplicity="*" />
+          <End Type="DbModel.AccessPoint" Role="AccessPoint" Multiplicity="1" />
+        </Association>
+        <Association Name="EventEventType">
+          <End Type="DbModel.Event" Role="Event" Multiplicity="*" />
+          <End Type="DbModel.EventType" Role="EventType" Multiplicity="1" />
+        </Association>
+        <Association Name="RoleFormPermissioForm">
+          <End Type="DbModel.RoleFormPermissio" Role="RoleFormPermissio" Multiplicity="*" />
+          <End Type="DbModel.Form" Role="Form" Multiplicity="1" />
+        </Association>
+        <Association Name="CityDepartment">
+          <End Type="DbModel.City" Role="City" Multiplicity="*" />
+          <End Type="DbModel.Department" Role="Department" Multiplicity="1" />
+        </Association>
+        <Association Name="AttendanceCard">
+          <End Type="DbModel.Attendance" Role="Attendance" Multiplicity="1" />
+          <End Type="DbModel.Card" Role="Card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attendance">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Card">
+              <PropertyRef Name="AttendanceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DbModelStoreContainer" CdmEntityContainer="DbModelContainer">
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.Role)">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ActivationCode" ColumnName="ActivationCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.Person)">
+        <MappingFragment StoreEntitySet="People">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="SecondLastName" ColumnName="SecondLastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="DocumenType" ColumnName="DocumenType" />
+          <ScalarProperty Name="BlodType" ColumnName="BlodType" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Forms">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.Form)">
+        <MappingFragment StoreEntitySet="Forms">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Models">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.Module)">
+        <MappingFragment StoreEntitySet="Models">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.UserRole)">
+        <MappingFragment StoreEntitySet="UserRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleFormPermissioSet">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.RoleFormPermissio)">
+        <MappingFragment StoreEntitySet="RoleFormPermissioSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permits">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.Permission)">
+        <MappingFragment StoreEntitySet="Permits">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FormsModules">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.FormModule)">
+        <MappingFragment StoreEntitySet="FormsModules">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.Department)">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Citys">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.City)">
+        <MappingFragment StoreEntitySet="Citys">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cards">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.Card)">
+        <MappingFragment StoreEntitySet="Cards">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="QR" ColumnName="QR" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="AttendanceId" ColumnName="AttendanceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Organizations">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.Organization)">
+        <MappingFragment StoreEntitySet="Organizations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrganizationDivisions">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.Division)">
+        <MappingFragment StoreEntitySet="OrganizationDivisions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Assignments">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.Assignment)">
+        <MappingFragment StoreEntitySet="Assignments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Branchs">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.Branch)">
+        <MappingFragment StoreEntitySet="Branchs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="location" ColumnName="location" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DivisionsBranchs">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.DivisionBranch)">
+        <MappingFragment StoreEntitySet="DivisionsBranchs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.Event)">
+        <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventsTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.EventType)">
+        <MappingFragment StoreEntitySet="EventsTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccessPoints">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.AccessPoint)">
+        <MappingFragment StoreEntitySet="AccessPoints">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Attendances">
+      <EntityTypeMapping TypeName="IsTypeOf(DbModel.Attendance)">
+        <MappingFragment StoreEntitySet="Attendances">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Hour" ColumnName="Hour" />
+          <ScalarProperty Name="TypeOfRecord" ColumnName="TypeOfRecord" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="UserPerson" TypeName="DbModel.UserPerson" StoreEntitySet="Users">
+      <EndProperty Name="Person">
+        <ScalarProperty Name="Id" ColumnName="PersonId_Id" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RoleModuleRole" TypeName="DbModel.RoleModuleRole" StoreEntitySet="RoleFormPermissioSet">
+      <EndProperty Name="Role">
+        <ScalarProperty Name="Id" ColumnName="RoleId_Id" />
+      </EndProperty>
+      <EndProperty Name="RoleModule">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserRoleRole" TypeName="DbModel.UserRoleRole" StoreEntitySet="UserRoles">
+      <EndProperty Name="Role">
+        <ScalarProperty Name="Id" ColumnName="RoleId_Id" />
+      </EndProperty>
+      <EndProperty Name="UserRole">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserRoleUser" TypeName="DbModel.UserRoleUser" StoreEntitySet="UserRoles">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="UserId_Id" />
+      </EndProperty>
+      <EndProperty Name="UserRole">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RoleModulePermission" TypeName="DbModel.RoleModulePermission" StoreEntitySet="RoleFormPermissioSet">
+      <EndProperty Name="Permission">
+        <ScalarProperty Name="Id" ColumnName="PermissionId_Id" />
+      </EndProperty>
+      <EndProperty Name="RoleModule">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FormModuleForm" TypeName="DbModel.FormModuleForm" StoreEntitySet="FormsModules">
+      <EndProperty Name="Form">
+        <ScalarProperty Name="Id" ColumnName="Form_Id" />
+      </EndProperty>
+      <EndProperty Name="FormModule">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FormModuleModule" TypeName="DbModel.FormModuleModule" StoreEntitySet="FormsModules">
+      <EndProperty Name="Module">
+        <ScalarProperty Name="Id" ColumnName="Module_Id" />
+      </EndProperty>
+      <EndProperty Name="FormModule">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PersonCity" TypeName="DbModel.PersonCity" StoreEntitySet="People">
+      <EndProperty Name="City">
+        <ScalarProperty Name="Id" ColumnName="CityId_Id" />
+      </EndProperty>
+      <EndProperty Name="Person">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CardPerson" TypeName="DbModel.CardPerson" StoreEntitySet="Cards">
+      <EndProperty Name="Person">
+        <ScalarProperty Name="Id" ColumnName="PersonId_Id" />
+      </EndProperty>
+      <EndProperty Name="Card">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AssignmentOrganizationDivision" TypeName="DbModel.AssignmentOrganizationDivision" StoreEntitySet="Assignments">
+      <EndProperty Name="OrganizationDivision">
+        <ScalarProperty Name="Id" ColumnName="DivisionId_Id" />
+      </EndProperty>
+      <EndProperty Name="Assignment">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PersonAssignment" TypeName="DbModel.PersonAssignment" StoreEntitySet="People">
+      <EndProperty Name="Assignment">
+        <ScalarProperty Name="Id" ColumnName="AssignmentId_Id" />
+      </EndProperty>
+      <EndProperty Name="Person">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DivisionBranchDivision" TypeName="DbModel.DivisionBranchDivision" StoreEntitySet="DivisionsBranchs">
+      <EndProperty Name="Division">
+        <ScalarProperty Name="Id" ColumnName="DivisionId_Id" />
+      </EndProperty>
+      <EndProperty Name="DivisionBranch">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DivisionBranchBranch" TypeName="DbModel.DivisionBranchBranch" StoreEntitySet="DivisionsBranchs">
+      <EndProperty Name="Branch">
+        <ScalarProperty Name="Id" ColumnName="BranchId_Id" />
+      </EndProperty>
+      <EndProperty Name="DivisionBranch">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AccessPointEvent" TypeName="DbModel.AccessPointEvent" StoreEntitySet="AccessPoints">
+      <EndProperty Name="Event">
+        <ScalarProperty Name="Id" ColumnName="EventId_Id" />
+      </EndProperty>
+      <EndProperty Name="AccessPoint">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AttendanceAccessPoint" TypeName="DbModel.AttendanceAccessPoint" StoreEntitySet="Attendances">
+      <EndProperty Name="AccessPoint">
+        <ScalarProperty Name="Id" ColumnName="AccessPointId_Id" />
+      </EndProperty>
+      <EndProperty Name="Attendance">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EventEventType" TypeName="DbModel.EventEventType" StoreEntitySet="Events">
+      <EndProperty Name="EventType">
+        <ScalarProperty Name="Id" ColumnName="EventTypeId_Id" />
+      </EndProperty>
+      <EndProperty Name="Event">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RoleFormPermissioForm" TypeName="DbModel.RoleFormPermissioForm" StoreEntitySet="RoleFormPermissioSet">
+      <EndProperty Name="Form">
+        <ScalarProperty Name="Id" ColumnName="FormId_Id" />
+      </EndProperty>
+      <EndProperty Name="RoleFormPermissio">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CityDepartment" TypeName="DbModel.CityDepartment" StoreEntitySet="Citys">
+      <EndProperty Name="Department">
+        <ScalarProperty Name="Id" ColumnName="DepartmentId_Id" />
+      </EndProperty>
+      <EndProperty Name="City">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
